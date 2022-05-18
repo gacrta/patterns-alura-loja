@@ -1,7 +1,9 @@
 #include "catch.hpp"
 #include "CalculadoraImpostos.hpp"
 #include "Orcamento.hpp"
-#include "TipoImposto.hpp"
+#include "ICMS.hpp"
+#include "ISS.hpp"
+#include "Imposto.hpp"
 
 TEST_CASE("Calculadora de Impostos")
 {
@@ -10,14 +12,14 @@ TEST_CASE("Calculadora de Impostos")
 
 	SECTION("ICMS")
 	{
-		double valorImposto = calculadora.calcular(orcamento, TipoImposto::ICMS);
+		double valorImposto = calculadora.calcular(orcamento, ICMS());
 
 		REQUIRE(valorImposto == 10.0);
 	}
 
 	SECTION("ISS")
 	{
-		double valorImposto = calculadora.calcular(orcamento, TipoImposto::ISS);
+		double valorImposto = calculadora.calcular(orcamento, ISS());
 
 		REQUIRE(valorImposto == 6.0);
 	}
